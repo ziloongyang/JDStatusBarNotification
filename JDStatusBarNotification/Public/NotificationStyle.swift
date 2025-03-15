@@ -286,7 +286,10 @@ public class StatusBarNotificationPillStyle: NSObject {
 
     /// The shadow radius of the pill shadow. The default is `4.0`.
     @objc public var shadowRadius: Double = 4.0
-
+    
+    /// The shadow opacity of the pill shadow. The default is `1.0`.
+    @objc public var shadowOpacity: Double = 1.0
+    
     /// The shadow offset for the pill shadow. The default is `(0, 2)`.
     @available(*, deprecated, renamed: "shadowOffsetXY")
     @objc public var shadowOffset: CGSize { set {
