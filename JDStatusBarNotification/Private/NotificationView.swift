@@ -384,7 +384,11 @@ class NotificationView: UIView, UIGestureRecognizerDelegate, StylableView {
   }
 
   func roundRectMaskForRectAndRadius(_ rect: CGRect) -> CALayer {
-    let roundedRectPath = UIBezierPath(roundedRect: rect, cornerRadius: rect.size.height / 2.0)
+    var cornerRadius = rect.size.height / 2.0
+    if style.backgroundStyle.pillStyle.cornerRadius - 0.0 > 0.000001 {
+      cornerRadius = style.backgroundStyle.pillStyle.cornerRadius
+    }
+    let roundedRectPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
     let maskLayer = CAShapeLayer()
     maskLayer.path = roundedRectPath.cgPath
     return maskLayer
@@ -429,7 +433,11 @@ class NotificationView: UIView, UIGestureRecognizerDelegate, StylableView {
       pillView.frame = contentView.bounds
 
       // Setup rounded corners (not using a mask layer, so that we can use shadows on this view)
-      pillView.layer.cornerRadius = round(pillView.frame.size.height / 2.0)
+      var cornerRadius = pillView.frame.size.height / 2.0
+      if style.backgroundStyle.pillStyle.cornerRadius - 0.0 > 0.000001 {
+        cornerRadius = style.backgroundStyle.pillStyle.cornerRadius
+      }
+      pillView.layer.cornerRadius = round(cornerRadius)
       pillView.layer.cornerCurve = .continuous
       pillView.layer.allowsEdgeAntialiasing = true
     }

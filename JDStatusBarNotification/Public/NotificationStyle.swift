@@ -264,6 +264,9 @@ public class StatusBarNotificationTextStyle: NSObject {
 public class StatusBarNotificationPillStyle: NSObject {
     /// The height of the pill. Default is `50.0`.
     @objc public var height: Double = 50.0
+    
+    /// The radius of the pill. The default is half height of pill.
+    @objc public var cornerRadius: Double = 0.0
 
     /// The spacing between the pill and the statusbar or top of the screen.. Default is `0.0`.
     @objc public var topSpacing: Double = 0.0
